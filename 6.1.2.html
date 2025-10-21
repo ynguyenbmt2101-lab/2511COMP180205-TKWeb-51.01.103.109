@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>6.1.2</title>
+    <style>
+        :root {
+            --card-w: 360px;
+            --card-h: 520px;
+            --accent: #ff3d9e;
+            --accent2: #ffcc00;
+            --bg1: linear-gradient(180deg, #ffecd2 0%, #fcb69f 100%);
+            --glass: rgba(255, 255, 255, 0.08);
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: "Poppins", "Segoe UI", sans-serif;
+            background: var(--bg1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            overflow: hidden;
+        }
+
+        .card {
+            width: var(--card-w);
+            height: var(--card-h);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 120, 120, 0.4);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6));
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .title {
+            margin-top: 8px;
+            font-size: 22px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ff4081;
+            text-shadow: 0 4px 18px rgba(255, 64, 129, 0.25);
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ff6f61;
+            margin: 6px 0;
+            animation: pop 1.2s ease-in-out infinite;
+            text-shadow: 0 6px 16px rgba(255, 111, 97, 0.4);
+        }
+
+        @keyframes pop {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-6px) scale(1.05);
+            }
+        }
+
+        .info {
+            text-align: center;
+            font-size: 15px;
+            color: #444;
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+
+        .rsvp {
+            margin-top: auto;
+            width: 100%;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            padding-bottom: 18px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            background: linear-gradient(90deg, #ff6f61, #ff3d9e);
+            color: white;
+            box-shadow: 0 6px 18px rgba(255, 107, 107, 0.4);
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        .btn:active {
+            transform: translateY(2px) scale(.995);
+        }
+
+        .btn.secondary {
+            background: linear-gradient(90deg, #ffd166, #ff9a36);
+            color: #fff;
+            box-shadow: 0 6px 18px rgba(255, 209, 102, 0.4);
+        }
+
+
+        .balloon {
+            position: absolute;
+            bottom: -120px;
+            width: 64px;
+            height: 90px;
+            border-radius: 50% 50% 48% 48%;
+            transform-origin: bottom center;
+            opacity: 0.95;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -22px;
+            width: 2px;
+            height: 28px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .b1 {
+            left: 20px;
+            background: linear-gradient(180deg, #ff6b6b, #ff9e9e);
+            animation: floatUp 9s linear infinite;
+        }
+
+        .b2 {
+            left: 90px;
+            background: linear-gradient(180deg, #ffd166, #fff5a3);
+            animation: floatUp 11s linear infinite;
+        }
+
+        .b3 {
+            left: 160px;
+            background: linear-gradient(180deg, #9be7ff, #4fc3f7);
+            animation: floatUp 10s linear infinite;
+        }
+
+        .b4 {
+            left: 230px;
+            background: linear-gradient(180deg, #b39cff, #7b61ff);
+            animation: floatUp 12s linear infinite;
+        }
+
+        .b5 {
+            left: 300px;
+            background: linear-gradient(180deg, #a8ff78, #78ffd6);
+            animation: floatUp 13s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                bottom: -140px;
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            50% {
+                bottom: 300px;
+            }
+
+            100% {
+                bottom: 720px;
+                opacity: 0;
+            }
+        }
+
+        .confetti {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .confetti i {
+            position: absolute;
+            width: 8px;
+            height: 14px;
+            opacity: 0.95;
+            transform-origin: center;
+            border-radius: 2px;
+            animation: conf 6s linear infinite;
+        }
+
+        .confetti i:nth-child(1) {
+            left: 10%;
+            background: #ff6b6b;
+            animation-delay: 0s;
+        }
+
+        .confetti i:nth-child(2) {
+            left: 22%;
+            background: #ffd166;
+            animation-delay: .3s;
+        }
+
+        .confetti i:nth-child(3) {
+            left: 34%;
+            background: #9be7ff;
+            animation-delay: .8s;
+        }
+
+        .confetti i:nth-child(4) {
+            left: 46%;
+            background: #b39cff;
+            animation-delay: 1.1s;
+        }
+
+        .confetti i:nth-child(5) {
+            left: 58%;
+            background: #2ecc71;
+            animation-delay: .6s;
+        }
+
+        .confetti i:nth-child(6) {
+            left: 70%;
+            background: #ff9ad5;
+            animation-delay: 0.9s;
+        }
+
+        .confetti i:nth-child(7) {
+            left: 82%;
+            background: #ff6b6b;
+            animation-delay: 1.4s;
+        }
+
+        .confetti i:nth-child(8) {
+            left: 50%;
+            background: #ffd166;
+            animation-delay: 1.8s;
+        }
+
+        .confetti i:nth-child(9) {
+            left: 28%;
+            background: #9be7ff;
+            animation-delay: 2.1s;
+        }
+
+        .confetti i:nth-child(10) {
+            left: 64%;
+            background: #b39cff;
+            animation-delay: 2.4s;
+        }
+
+        @keyframes conf {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0.12;
+            }
+        }
+
+        .footer {
+            font-size: 12px;
+            color: #555;
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        @media (max-width:420px) {
+            :root {
+                --card-w: 320px;
+                --card-h: 500px;
+            }
+
+            .balloon {
+                width: 54px;
+                height: 76px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="title">INVITATION</div>
+        <div class="name">Birthday party!</div>
+
+        <div class="info">
+            <strong>Name:</strong>xyz<br>
+            <strong>Time:</strong> 18:30 - Tuesday, 21/10/2025<br>
+            <strong>Place:</strong>xyz<br><br>
+        </div>
+
+        <div class="rsvp">
+            <button class="btn" onclick="alert('Thanks! See u at the party 🎉')">Yess</button>
+            <button class="btn secondary" onclick="location.href='mailto:ynguyen.bmt2101@gmail.com'">Email</button>
+        </div>
+
+        <div class="footer">Dress code: </div>
+
+        <div class="balloon b1"></div>
+        <div class="balloon b2"></div>
+        <div class="balloon b3"></div>
+        <div class="balloon b4"></div>
+        <div class="balloon b5"></div>
+
+        <div class="confetti">
+            <i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i>
+        </div>
+    </div>
+
+</body>
+
+</html>

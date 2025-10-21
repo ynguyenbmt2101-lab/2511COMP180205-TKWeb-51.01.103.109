@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.1.1</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            background-image: url('c:/web/img/backgrounds/bg1.jpg');
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+
+        #controls {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+        }
+
+        button {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin-right: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: rgba(0, 123, 255, 0.8);
+            color: white;
+        }
+
+
+        #shark {
+            position: absolute;
+            left: 50px;
+            top: 350px;
+            animation: Shark 12s linear infinite;
+        }
+
+        @keyframes Shark {
+            0% {
+                left: -200px;
+                top: 350px;
+                transform: scaleX(1);
+            }
+
+            25% {
+                left: 400px;
+                top: 300px;
+            }
+
+            50% {
+                left: 900px;
+                top: 200px;
+                transform: scaleX(1);
+            }
+
+            75% {
+                left: 400px;
+                top: 400px;
+                transform: scaleX(-1);
+            }
+
+            100% {
+                left: -200px;
+                top: 350px;
+                transform: scaleX(-1);
+            }
+        }
+
+        #driver1,
+        #driver2,
+        #driver3 {
+            position: absolute;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        #driver1 {
+            top: 450px;
+            left: -150px;
+            animation: driver1 35s linear infinite;
+        }
+
+        #driver2 {
+            top: 300px;
+            left: -150px;
+            animation: driver2 45s linear infinite;
+        }
+
+        #driver3 {
+            top: 150px;
+            left: -150px;
+            animation: driver3 50s linear infinite;
+        }
+
+        @keyframes driver1 {
+            0% {
+                left: -150px;
+                transform: scaleX(1);
+            }
+
+            50% {
+                left: 100vw;
+                transform: scaleX(1);
+            }
+
+            51% {
+                transform: scaleX(-1);
+            }
+
+            100% {
+                left: -150px;
+                transform: scaleX(-1);
+            }
+        }
+
+        @keyframes driver2 {
+            0% {
+                left: -150px;
+                transform: scaleX(1);
+            }
+
+            50% {
+                left: 100vw;
+                transform: scaleX(1);
+            }
+
+            51% {
+                transform: scaleX(-1);
+            }
+
+            100% {
+                left: -150px;
+                transform: scaleX(-1);
+            }
+        }
+
+        @keyframes driver3 {
+            0% {
+                left: -150px;
+                transform: scaleX(1);
+            }
+
+            50% {
+                left: 100vw;
+                transform: scaleX(1);
+            }
+
+            51% {
+                transform: scaleX(-1);
+            }
+
+            100% {
+                left: -150px;
+                transform: scaleX(-1);
+            }
+        }
+
+        #faint {
+            position: absolute;
+            top: 250px;
+            left: -150px;
+            animation: faint 18s linear infinite;
+        }
+
+        @keyframes faint {
+            0% {
+                left: -150px;
+                transform: scaleX(1);
+            }
+
+            50% {
+                left: 100vw;
+                transform: scaleX(1);
+            }
+
+            51% {
+                transform: scaleX(-1);
+            }
+
+            100% {
+                left: -150px;
+                transform: scaleX(-1);
+            }
+        }
+
+        #goldfish {
+            position: absolute;
+            top: 500px;
+            left: -100px;
+            animation: goldfish 20s linear infinite;
+        }
+
+        @keyframes goldfish {
+            0% {
+                left: -100px;
+                transform: scaleX(1);
+            }
+
+            50% {
+                left: 100vw;
+                transform: scaleX(1);
+            }
+
+            51% {
+                transform: scaleX(-1);
+            }
+
+            100% {
+                left: -100px;
+                transform: scaleX(-1);
+            }
+        }
+
+        #turtle {
+            position: absolute;
+            top: 550px;
+            left: -150px;
+            animation: turtle 70s linear infinite;
+        }
+
+        @keyframes turtle {
+            0% {
+                left: -150px;
+                transform: scaleX(1);
+            }
+
+            50% {
+                left: 100vw;
+                transform: scaleX(1);
+            }
+
+            51% {
+                transform: scaleX(-1);
+            }
+
+            100% {
+                left: -150px;
+                transform: scaleX(-1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="controls">
+        <button id="changeBg">Change background</button>
+        <button id="toggleMusic">Music</button>
+    </div>
+
+
+    <div id="shark"><img src="c:/web/img/images/shark.png" width="200"></div>
+    <div id="driver1"><img src="c:/web/img/images/diver1.png" width="120"></div>
+    <div id="driver2"><img src="c:/web/img/images/diver2.png" width="130"></div>
+    <div id="driver3"><img src="c:/web/img/images/diver3.png" width="110"></div>
+    <div id="faint"><img src="c:/web/img/images/faintSchool.png" width="200"></div>
+    <div id="goldfish"><img src="c:/web/img/images/goldFishSchool.png" width="180"></div>
+    <div id="turtle"><img src="c:/web/img/images/turtle.png" width="150"></div>
+
+
+    <audio id="bgMusic" loop>
+        <source src="c:\Users\Nhu y\Downloads\ocean-wave-100271.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+
+        const backgrounds = [
+            'https://i.pinimg.com/736x/fd/e9/4f/fde94f8e31a6d25536c713e4890d4a2f.jpg',
+            'https://i.pinimg.com/736x/b9/08/25/b9082504e4f7a0440fe996d3388c5da9.jpg',
+            'https://i.pinimg.com/1200x/23/57/9b/23579be711796b76918a27a7bc054ed4.jpg',
+            'https://i.pinimg.com/736x/23/a6/1a/23a61a40b8863a8990b55c8cdde5f94e.jpg'
+        ];
+        let bgIndex = 0;
+
+        document.getElementById("changeBg").onclick = () => {
+            bgIndex = (bgIndex + 1) % backgrounds.length;
+            document.body.style.backgroundImage = `url('${backgrounds[bgIndex]}')`;
+        };
+
+
+        const music = document.getElementById("bgMusic");
+        const toggleBtn = document.getElementById("toggleMusic");
+        let isPlaying = false;
+
+        toggleBtn.onclick = () => {
+            if (isPlaying) {
+                music.pause();
+                toggleBtn.innerText = "Play Music";
+            } else {
+                music.play();
+                toggleBtn.innerText = "Stop Music";
+            }
+            isPlaying = !isPlaying;
+        };
+    </script>
+</body>
+
+</html>
